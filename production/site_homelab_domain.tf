@@ -33,18 +33,18 @@ resource "cloudflare_dns_record" "homelab_domain_caa" {
   }
 }
 
-resource "cloudflare_dns_record" "homelab_domain_dynamic_dns" {
-  zone_id = cloudflare_zone.homelab_domain.id
-  name    = "ddns"
-  type    = "A"
-  ttl     = 1800
-  content = "1.1.1.1"
-  proxied = false
-
-  lifecycle {
-    ignore_changes = [
-      content
-    ]
-  }
-
-}
+# resource "cloudflare_dns_record" "homelab_domain_dynamic_dns" {
+#   zone_id = cloudflare_zone.homelab_domain.id
+#   name    = "ddns"
+#   type    = "A"
+#   ttl     = 1800
+#   content = "1.1.1.1"
+#   proxied = false
+# 
+#   lifecycle {
+#     ignore_changes = [
+#       content
+#     ]
+#   }
+# 
+# }
