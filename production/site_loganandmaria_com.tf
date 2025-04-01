@@ -21,7 +21,7 @@ resource "cloudflare_zone" "loganandmaria_com" {
 
 resource "cloudflare_dns_record" "loganandmaria_com_a" {
   zone_id = cloudflare_zone.loganandmaria_com.id
-  name    = "@"
+  name    = cloudflare_zone.loganandmaria_com.name
   type    = "A"
   ttl     = 3600
   content = digitalocean_droplet.web01.ipv4_address
@@ -30,7 +30,7 @@ resource "cloudflare_dns_record" "loganandmaria_com_a" {
 
 resource "cloudflare_dns_record" "loganandmaria_com_aaaa" {
   zone_id = cloudflare_zone.loganandmaria_com.id
-  name    = "@"
+  name    = cloudflare_zone.loganandmaria_com.name
   type    = "AAAA"
   ttl     = 3600
   content = digitalocean_droplet.web01.ipv6_address
@@ -39,7 +39,7 @@ resource "cloudflare_dns_record" "loganandmaria_com_aaaa" {
 
 resource "cloudflare_dns_record" "loganandmaria_com_a_www" {
   zone_id = cloudflare_zone.loganandmaria_com.id
-  name    = "www"
+  name    = "www.${cloudflare_zone.loganandmaria_com.name}"
   type    = "A"
   ttl     = 3600
   content = digitalocean_droplet.web01.ipv4_address
@@ -48,7 +48,7 @@ resource "cloudflare_dns_record" "loganandmaria_com_a_www" {
 
 resource "cloudflare_dns_record" "loganandmaria_com_aaaa_www" {
   zone_id = cloudflare_zone.loganandmaria_com.id
-  name    = "www"
+  name    = "www.${cloudflare_zone.loganandmaria_com.name}"
   type    = "AAAA"
   ttl     = 3600
   content = digitalocean_droplet.web01.ipv6_address
@@ -59,7 +59,7 @@ resource "cloudflare_dns_record" "loganandmaria_com_caa" {
   for_each = toset(local.lets_encrypt_caa_record_tags)
 
   zone_id = cloudflare_zone.loganandmaria_com.id
-  name    = "@"
+  name    = cloudflare_zone.loganandmaria_com.name
   type    = "CAA"
   ttl     = 3600
   data = {
@@ -73,7 +73,7 @@ resource "cloudflare_dns_record" "loganandmaria_com_mx" {
   for_each = { for key, val in local.loganandmaria_mx_records : key => val }
 
   zone_id  = cloudflare_zone.loganandmaria_com.id
-  name     = "@"
+  name     = cloudflare_zone.loganandmaria_com.name
   type     = "MX"
   ttl      = 3600
   content  = each.value.content
@@ -83,7 +83,7 @@ resource "cloudflare_dns_record" "loganandmaria_com_mx" {
 
 resource "cloudflare_dns_record" "loganandmaria_com_txt" {
   zone_id = cloudflare_zone.loganandmaria_com.id
-  name    = "@"
+  name    = cloudflare_zone.loganandmaria_com.name
   type    = "TXT"
   ttl     = 3600
   content = "\"v=spf1 include:_spf.google.com ~all\""

@@ -21,7 +21,7 @@ resource "cloudflare_zone" "mariapietropola_com" {
 
 resource "cloudflare_dns_record" "mariapietropola_com_a" {
   zone_id = cloudflare_zone.mariapietropola_com.id
-  name    = "@"
+  name    = cloudflare_zone.mariapietropola_com.name
   type    = "A"
   ttl     = 3600
   content = digitalocean_droplet.web01.ipv4_address
@@ -30,7 +30,7 @@ resource "cloudflare_dns_record" "mariapietropola_com_a" {
 
 resource "cloudflare_dns_record" "mariapietropola_com_aaaa" {
   zone_id = cloudflare_zone.mariapietropola_com.id
-  name    = "@"
+  name    = cloudflare_zone.mariapietropola_com.name
   type    = "AAAA"
   ttl     = 3600
   content = digitalocean_droplet.web01.ipv6_address
@@ -39,7 +39,7 @@ resource "cloudflare_dns_record" "mariapietropola_com_aaaa" {
 
 resource "cloudflare_dns_record" "mariapietropola_com_a_www" {
   zone_id = cloudflare_zone.mariapietropola_com.id
-  name    = "www"
+  name    = "www.${cloudflare_zone.mariapietropola_com.name}"
   type    = "A"
   ttl     = 3600
   content = digitalocean_droplet.web01.ipv4_address
@@ -48,7 +48,7 @@ resource "cloudflare_dns_record" "mariapietropola_com_a_www" {
 
 resource "cloudflare_dns_record" "mariapietropola_com_aaaa_www" {
   zone_id = cloudflare_zone.mariapietropola_com.id
-  name    = "www"
+  name    = "www.${cloudflare_zone.mariapietropola_com.name}"
   type    = "AAAA"
   ttl     = 3600
   content = digitalocean_droplet.web01.ipv6_address
@@ -59,7 +59,7 @@ resource "cloudflare_dns_record" "mariapietropola_com_caa" {
   for_each = toset(local.lets_encrypt_caa_record_tags)
 
   zone_id = cloudflare_zone.mariapietropola_com.id
-  name    = "@"
+  name    = cloudflare_zone.mariapietropola_com.name
   type    = "CAA"
   ttl     = 3600
   data = {

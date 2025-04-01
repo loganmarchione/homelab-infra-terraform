@@ -23,7 +23,7 @@ resource "cloudflare_dns_record" "hamradionewbie_com_a" {
   for_each = toset(local.hamradionewbie_com_github_pages_ipv4_addresses)
 
   zone_id = cloudflare_zone.hamradionewbie_com.id
-  name    = "@"
+  name    = cloudflare_zone.hamradionewbie_com.name
   type    = "A"
   ttl     = 3600
   content = each.value
@@ -34,7 +34,7 @@ resource "cloudflare_dns_record" "hamradionewbie_com_aaaa" {
   for_each = toset(local.hamradionewbie_com_github_pages_ipv6_addresses)
 
   zone_id = cloudflare_zone.hamradionewbie_com.id
-  name    = "@"
+  name    = cloudflare_zone.hamradionewbie_com.name
   type    = "AAAA"
   ttl     = 3600
   content = each.value
@@ -45,7 +45,7 @@ resource "cloudflare_dns_record" "hamradionewbie_com_caa" {
   for_each = toset(local.lets_encrypt_caa_record_tags)
 
   zone_id = cloudflare_zone.hamradionewbie_com.id
-  name    = "@"
+  name    = cloudflare_zone.hamradionewbie_com.name
   type    = "CAA"
   ttl     = 3600
   data = {

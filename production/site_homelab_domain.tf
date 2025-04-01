@@ -23,7 +23,7 @@ resource "cloudflare_dns_record" "homelab_domain_caa" {
   for_each = toset(local.lets_encrypt_caa_record_tags)
 
   zone_id = cloudflare_zone.homelab_domain.id
-  name    = "@"
+  name    = cloudflare_zone.homelab_domain.name
   type    = "CAA"
   ttl     = 3600
   data = {
