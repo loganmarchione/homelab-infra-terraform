@@ -6,4 +6,4 @@ This Terraform provider ([Telmate/proxmox](https://registry.terraform.io/provide
 
 ## Explanation
 
-Repo containing Terraform files for a test of Proxmox's IaC capabilities.
+Directory containing Terraform files for a test of Proxmox's IaC capabilities.
