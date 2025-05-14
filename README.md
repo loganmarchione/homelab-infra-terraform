@@ -6,7 +6,7 @@ Everything in here is *heavily* customized for my homelab. It will not work for 
 
 [![Terraform Checks](https://github.com/loganmarchione/homelab_infra/actions/workflows/terraform_checks.yml/badge.svg)](https://github.com/loganmarchione/homelab_infra/actions/workflows/terraform_checks.yml)
 
-Turning electricity into heat since 2015.
+A collection of Terraform files
 
 ## Explanation
 
