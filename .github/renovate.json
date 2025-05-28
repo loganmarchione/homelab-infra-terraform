@@ -12,6 +12,7 @@
   "packageRules": [
     {
       "matchManagers": [
+        "github-actions",
         "terraform",
         "tflint-plugin"
       ],
