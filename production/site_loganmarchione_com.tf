@@ -41,7 +41,7 @@ resource "aws_route53_record" "loganmarchione_com_txt" {
   ttl     = "3600"
   records = [
     "v=spf1 include:spf.messagingengine.com ~all",
-    "brave-ledger-verification=da1b68a7f01cb62d91c8f3613d1b3ac854a07a2bd376ca38259c0f7834f4f7f9"
+    "brave-ledger-verification=e4da6b4a49ab43dba4926c5564f8bc0c34a40883869f2d1f6fe8886108814e82"
   ]
 }
 
