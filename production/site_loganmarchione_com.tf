@@ -179,8 +179,8 @@ module "iam_github_oidc_role_loganmarchione_com" {
   source = "github.com/terraform-aws-modules/terraform-aws-iam//modules/iam-role?ref=v6.1.0"
 
   enable_github_oidc = true
-  name = "GitHubActionsOIDC-loganmarchione-com"
-  use_name_prefix = false
+  name               = "GitHubActionsOIDC-loganmarchione-com"
+  use_name_prefix    = false
   policies = {
     SiteUpdating-loganmarchione-com = module.static_site_loganmarchione_com.site_updating_iam_policy_arn
   }
