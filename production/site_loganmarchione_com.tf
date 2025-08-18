@@ -180,8 +180,9 @@ module "iam_github_oidc_role_loganmarchione_com" {
 
   enable_github_oidc = true
   name = "GitHubActionsOIDC-loganmarchione-com"
+  use_name_prefix = false
   policies = {
     SiteUpdating-loganmarchione-com = module.static_site_loganmarchione_com.site_updating_iam_policy_arn
   }
-  oidc_subjects = ["loganmarchione/loganmarchione.com:*"]
+  oidc_wildcard_subjects = ["loganmarchione/loganmarchione.com:*"]
 }
