@@ -176,7 +176,7 @@ module "static_site_loganmarchione_com" {
 ################################################################################
 
 module "iam_github_oidc_role_loganmarchione_com" {
-  source = "github.com/terraform-aws-modules/terraform-aws-iam//modules/iam-role?ref=v6.2.1"
+  source = "github.com/terraform-aws-modules/terraform-aws-iam//modules/iam-role?ref=v6.2.2"
 
   enable_github_oidc = true
   name               = "GitHubActionsOIDC-loganmarchione-com"
