@@ -21,6 +21,22 @@ variable "homelab_domain" {
 
 
 ################################################################################
+### Backblaze B2
+################################################################################
+
+variable "b2_application_key_id" {
+  description = "B2 application key ID (in secrets.tfvars)"
+  sensitive   = true
+  type        = string
+}
+
+variable "b2_application_key" {
+  description = "B2 application key (in secrets.tfvars)"
+  sensitive   = true
+  type        = string
+}
+
+################################################################################
 ### Cloudflare
 ################################################################################
 

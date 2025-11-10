@@ -5,6 +5,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 6.20.0"
     }
+    b2 = {
+      source = "Backblaze/b2"
+      version = "~> 0.10.0"
+    }
     cloudflare = {
       source  = "cloudflare/cloudflare"
       version = "~> 5.12.0"
