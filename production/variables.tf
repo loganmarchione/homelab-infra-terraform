@@ -21,6 +21,22 @@ variable "homelab_domain" {
 
 
 ################################################################################
+### Cloudflare
+################################################################################
+
+variable "cloudflare_api_token" {
+  description = "Cloudflare API token (in secrets.tfvars)"
+  sensitive   = true
+  type        = string
+}
+
+variable "cloudflare_account_id" {
+  description = "Cloudflare account ID (in secrets.tfvars)"
+  sensitive   = true
+  type        = string
+}
+
+################################################################################
 ### DigitalOcean variables
 ################################################################################
 
@@ -42,21 +58,5 @@ variable "do_region" {
 variable "do_size" {
   default     = "s-1vcpu-2gb"
   description = "Default droplet size"
-  type        = string
-}
-
-################################################################################
-### Cloudflare
-################################################################################
-
-variable "cloudflare_api_token" {
-  description = "Cloudflare API token (in secrets.tfvars)"
-  sensitive   = true
-  type        = string
-}
-
-variable "cloudflare_account_id" {
-  description = "Cloudflare account ID (in secrets.tfvars)"
-  sensitive   = true
   type        = string
 }
