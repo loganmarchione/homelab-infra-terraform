@@ -8,6 +8,14 @@ variable "email_logan" {
   type        = string
 }
 
+
+variable "email_logan_dmarc" {
+  description = "Email address to use for DMARC reports (in secrets.tfvars)"
+  sensitive   = true
+  type        = string
+}
+
+
 variable "homelab_domain" {
   description = "Homelab domain (in secrets.tfvars)"
   sensitive   = true

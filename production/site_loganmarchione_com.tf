@@ -45,6 +45,16 @@ resource "aws_route53_record" "loganmarchione_com_txt" {
   ]
 }
 
+resource "aws_route53_record" "loganmarchione_com_dmarc" {
+  zone_id = aws_route53_zone.loganmarchione_com.zone_id
+  name    = "_dmarc.loganmarchione.com"
+  type    = "TXT"
+  ttl     = "3600"
+  records = [
+    "v=DMARC1; p=quarantine; rua=mailto:${var.email_logan_dmarc};"
+  ]
+}
+
 resource "aws_route53_record" "loganmarchione_com_cname_dkim" {
   count   = 3
   zone_id = aws_route53_zone.loganmarchione_com.zone_id
