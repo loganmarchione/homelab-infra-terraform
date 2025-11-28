@@ -51,7 +51,7 @@ resource "aws_route53_record" "loganmarchione_com_dmarc" {
   type    = "TXT"
   ttl     = "3600"
   records = [
-    "v=DMARC1; p=quarantine; rua=mailto:${var.email_logan_dmarc};"
+    "v=DMARC1; p=quarantine; rua=mailto:re+dviosnr2n0b@dmarc.postmarkapp.com; sp=none; aspf=r;"
   ]
 }
 
