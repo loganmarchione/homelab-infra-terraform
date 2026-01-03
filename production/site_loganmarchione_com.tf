@@ -56,13 +56,14 @@ resource "aws_route53_record" "loganmarchione_com_dmarc" {
 }
 
 resource "aws_route53_record" "loganmarchione_com_cname_dkim" {
-  count   = 3
+  for_each = toset(["1", "2", "3"])
+
   zone_id = aws_route53_zone.loganmarchione_com.zone_id
-  name    = "fm${count.index + 1}._domainkey"
+  name    = "fm${each.key}._domainkey"
   type    = "CNAME"
   ttl     = "3600"
   records = [
-    "fm${count.index + 1}.loganmarchione.com.dkim.fmhosted.com"
+    "fm${each.key}.loganmarchione.com.dkim.fmhosted.com"
   ]
 }
 
