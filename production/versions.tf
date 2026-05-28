@@ -3,7 +3,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 6.43.0"
+      version = "~> 6.47.0"
     }
     b2 = {
       source  = "Backblaze/b2"
