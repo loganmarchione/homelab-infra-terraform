@@ -56,10 +56,10 @@ jobs:
         run: tflint --version
 
       - name: TFLint init
-        run: tflint --init --config "${{ github.workspace }}/.tflint.hcl"
+        run: tflint --init
 
       - name: TFLint validate
-        run: tflint --config "${{ github.workspace }}/.tflint.hcl"
+        run: tflint
 
   # kics:
   #   name: KICS
