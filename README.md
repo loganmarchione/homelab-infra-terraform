@@ -15,4 +15,4 @@ This directory contains the directories below. See each directory for a more det
 | Directory                      | Contents              | State                                           |
 |--------------------------------|-----------------------|-------------------------------------------------|
 | [`production`](production)     | Terraform (IaC files) | Currently being used, aka "production"          |
-| [`proxmox_test`](proxmox_test) | Terraform (IaC files) | Not being used                                  |
+| [`talos`](talos)               | Terraform (IaC files) | Testing a Talos cluster                         |
