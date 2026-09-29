@@ -14,9 +14,19 @@ defaults:
 
 jobs:
   terraform_lint:
-    name: Terraform Lint
+    name: Terraform Lint (${{ matrix.dir }})
 
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        dir:
+          - production
+          - talos
+
+    defaults:
+      run:
+        working-directory: ${{ matrix.dir }}
 
     steps:
       - name: Check out the codebase
@@ -40,7 +50,7 @@ jobs:
       - name: Setup TFLint
         uses: terraform-linters/setup-tflint@1cf010d3c7aef302051ccdb68c14c5dc2efa34ef # v6
         with:
-          github_token: ${{ secrets.TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: TFLint version
         run: tflint --version
@@ -59,7 +69,7 @@ jobs:
 
   #   steps:
   #     - name: Check out the codebase
-  #       uses: actions/checkout@v6 
+  #       uses: actions/checkout@v6
 
   #     - name: Run KICS
   #       uses: Checkmarx/kics-github-action@v2.1.20
