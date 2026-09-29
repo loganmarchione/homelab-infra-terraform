@@ -3,8 +3,8 @@ resource "b2_bucket" "marchione-bucket02" {
   bucket_type = "allPrivate"
 
   default_server_side_encryption {
-    algorithm = null
-    mode      = "none"
+    algorithm = "AES256"
+    mode      = "SSE-B2"
   }
 
   lifecycle_rules {
@@ -19,8 +19,8 @@ resource "b2_bucket" "marchione-homelab-pbs" {
   bucket_type = "allPrivate"
 
   default_server_side_encryption {
-    algorithm = null
-    mode      = "none"
+    algorithm = "AES256"
+    mode      = "SSE-B2"
   }
 
   lifecycle_rules {
