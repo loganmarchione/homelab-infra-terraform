@@ -2,7 +2,7 @@
 
 ## Explanation
 
-Repo containing Terraform files that are currently being used, aka "production".
+External services (DNS, sites, email, DigitalOcean)
 
 ## Requirements
 

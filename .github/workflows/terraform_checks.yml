@@ -18,7 +18,7 @@ jobs:
       matrix:
         dir:
           - bootstrap
-          - production
+          - external
           - talos
 
     defaults:

@@ -3,7 +3,7 @@ terraform {
   backend "s3" {
     region       = "us-east-2"
     bucket       = "loganmarchione-terraform-state"
-    key          = "production/terraform.tfstate"
+    key          = "external/terraform.tfstate"
     encrypt      = true
     use_lockfile = true
   }
