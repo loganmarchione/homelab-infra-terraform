@@ -12,7 +12,12 @@ A collection of Terraform files
 
 This directory contains the directories below. See each directory for a more detailed `README.md`.
 
-| Directory                      | Contents              | State                                           |
-|--------------------------------|-----------------------|-------------------------------------------------|
-| [`production`](production)     | Terraform (IaC files) | Currently being used, aka "production"          |
-| [`talos`](talos)               | Terraform (IaC files) | Testing a Talos cluster                         |
+| Directory                  | What it manages                                       | Status                    |
+|----------------------------|-------------------------------------------------------|---------------------------|
+| [`bootstrap`](bootstrap)   | S3 bucket holding Terraform state for all directories | Stable, rarely changes    |
+| [`external`](external)     | External services (DNS, sites, email, DigitalOcean)   | In use                    |
+| [`talos`](talos)           | Talos Kubernetes cluster config                       | Testing                   |
+
+Some notes:
+- `bootstrap` must be applied first. It creates the S3 bucket that every other directory uses as its backend. The other directories are independent of each other and can be applied in any order.
+- `bootstrap`'s state lives in the bucket that it manages (self-reference).
