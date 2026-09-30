@@ -32,7 +32,7 @@ resource "aws_s3_bucket_versioning" "terraform_state" {
 
 # Bucket encryption
 resource "aws_s3_bucket_server_side_encryption_configuration" "terraform_state" {
-  bucket = aws_s3_bucket.terraform_state.bucket
+  bucket = aws_s3_bucket.terraform_state.id
 
   rule {
     apply_server_side_encryption_by_default {
@@ -41,16 +41,8 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "terraform_state" 
   }
 }
 
-# Enable bucket logging
-#resource "aws_s3_bucket_logging" "terraform_state" {
-#  bucket = aws_s3_bucket.terraform_state.id
-#
-#  target_bucket = aws_s3_bucket.terraform_state_logging.id
-#  target_prefix = "log/"
-#}
-
 # Make sure the bucket is not public
-resource "aws_s3_bucket_public_access_block" "s3_terraform_state" {
+resource "aws_s3_bucket_public_access_block" "terraform_state" {
   bucket                  = aws_s3_bucket.terraform_state.id
   block_public_acls       = true
   ignore_public_acls      = true
