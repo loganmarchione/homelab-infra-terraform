@@ -19,6 +19,7 @@ jobs:
         dir:
           - bootstrap
           - external
+          - github
           - talos
 
     defaults:

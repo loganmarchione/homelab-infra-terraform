@@ -4,7 +4,7 @@ Everything in here is *heavily* customized for my homelab. It will not work for 
 
 # homelab-infra-terraform
 
-[![Terraform Checks](https://github.com/loganmarchione/homelab_infra/actions/workflows/terraform_checks.yml/badge.svg)](https://github.com/loganmarchione/homelab_infra/actions/workflows/terraform_checks.yml)
+[![Terraform Checks](https://github.com/loganmarchione/homelab-infra-terraform/actions/workflows/terraform_checks.yml/badge.svg)](https://github.com/loganmarchione/homelab-infra-terraform/actions/workflows/terraform_checks.yml)
 
 A collection of Terraform files
 
@@ -16,6 +16,7 @@ This directory contains the directories below. See each directory for a more det
 |----------------------------|-------------------------------------------------------|---------------------------|
 | [`bootstrap`](bootstrap)   | S3 bucket holding Terraform state for all directories | Stable, rarely changes    |
 | [`external`](external)     | External services (DNS, sites, email, DigitalOcean)   | In use                    |
+| [`github`](github)         | GitHub repository settings                            | In use                    |
 | [`talos`](talos)           | Talos Kubernetes cluster config                       | Testing                   |
 
 Some notes:
