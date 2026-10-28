@@ -69,3 +69,30 @@ resource "aws_s3_bucket_lifecycle_configuration" "terraform_state" {
     }
   }
 }
+
+# Deny any request that doesn't use TLS
+resource "aws_s3_bucket_policy" "terraform_state" {
+  bucket = aws_s3_bucket.terraform_state.id
+
+  policy = jsonencode({
+    "Version" : "2012-10-17",
+    "Id" : "RestrictToTLSRequestsOnly",
+    "Statement" : [
+      {
+        "Sid" : "RestrictToTLSRequestsOnly",
+        "Action" : "s3:*",
+        "Effect" : "Deny",
+        "Resource" : [
+          aws_s3_bucket.terraform_state.arn,
+          "${aws_s3_bucket.terraform_state.arn}/*"
+        ],
+        "Condition" : {
+          "Bool" : {
+            "aws:SecureTransport": "false"
+          }
+        },
+        "Principal" : "*",
+      }
+    ]
+  })
+}
