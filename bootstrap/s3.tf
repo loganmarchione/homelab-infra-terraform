@@ -91,7 +91,7 @@ resource "aws_s3_bucket_policy" "terraform_state" {
         ],
         "Condition" : {
           "Bool" : {
-            "aws:SecureTransport": "false"
+            "aws:SecureTransport" : "false"
           }
         },
         "Principal" : "*",
