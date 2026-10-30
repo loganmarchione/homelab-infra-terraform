@@ -73,6 +73,10 @@ repos = {
     description  = "Runs a Nginx WebDav server in Docker"
     homepage_url = "https://hub.docker.com/r/loganmarchione/docker-webdav-nginx"
   }
+  "dockerized-claude-code" = {
+    archived    = false
+    description = null
+  }
   "dotfiles" = {
     archived    = false
     description = "My dotfiles"
